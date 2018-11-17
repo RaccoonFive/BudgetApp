@@ -7,15 +7,15 @@
   <%= link_to incomes_path, class: "sideBar__link" do %>
     <i class="icon icon-ic_file_download_48px"></i>
     Revenus
-  <% end%>
+  <% end %>
 
-  <a href="/object_list" class="sideBar__link">
+  <%= link_to expenses_path, class: "sideBar__link" do %>
     <i class="icon icon-ic_file_upload_48px"></i>
     Dépenses
-  </a>
+  <% end %>
 
-  <a href="/object_list" class="sideBar__link">
+  <%= link_to expense_categories_path, class: "sideBar__link" do %>
     <i class="icon icon-ic_folder_open_48px"></i>
     Catégories de dépenses
-  </a>
+  <% end %>
 </div>
