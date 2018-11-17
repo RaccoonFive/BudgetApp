@@ -1,0 +1,5 @@
+<% if @save_state %>
+  $('.popup').removeClass('--active');
+  $('.listTable').empty();
+  $('.listTable').append("<%= j render 'table' %>")
+<% end %>

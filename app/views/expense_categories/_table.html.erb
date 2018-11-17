@@ -1,0 +1,16 @@
+<table class="">
+  <thead>
+    <tr class="listTable__header">
+      <th>Nom</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @expense_categories.each do |expense_category| %>
+      <tr>
+        <th><%= expense_category.name %></th>
+        <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
