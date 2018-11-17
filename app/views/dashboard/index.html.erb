@@ -1,140 +1,94 @@
-<nav class="navbar">
-  <div class="navbar__sideMenuButton">
-    <i class="icon icon-ic_menu_48px" id="sideBarBtn"></i>
-  </div>
-
-  <div class="navbar__links">
-    <a href="#" class="selected">
-      <i class="icon icon-ic_person_48px"></i>
-      Mon compte
-    </a>
-    
-    <a href="index.html">
-      <i class="icon icon-ic_subdirectory_arrow_left_48px"></i>        
-      Déconnexion
-    </a>
-  </div>    
-</nav>
-
-<div class="navbarSpacer"></div>
-
-
-<div class="sideBar">
-  <a href="/dashboard.html" class="sideBar__link selected">
-    <i class="icon icon-ic_web_48px"></i>
-    Tableau de bord
-  </a>
-
-  <a href="/object_list.html" class="sideBar__link">
-    <i class="icon icon-ic_file_download_48px"></i>
-    Revenus
-  </a>
-
-  <a href="/object_list" class="sideBar__link">
-    <i class="icon icon-ic_file_upload_48px"></i>
-    Dépenses
-  </a>
-
-  <a href="/object_list" class="sideBar__link">
-    <i class="icon icon-ic_folder_open_48px"></i>
-    Catégories de dépenses
-  </a>
-</div>
-
-
-
-
-<div class="dashboardBoxWrapper">
-  <div class="dashboardBox">
-    <h1 class="dashboardBox__title">Balance</h1>
-    <span class="dashboardBox__value">125$</span>
-  </div>
-
-  <div class="dashboardBox">
-    <h1 class="dashboardBox__title">Dépenses</h1>
-    <span class="dashboardBox__value">700$</span>
-  </div>
-
-  <div class="dashboardBox">
-    <h1 class="dashboardBox__title">Revenus</h1>
-    <span class="dashboardBox__value">2000$</span>
-  </div>
-
-  <div class="dashboardBox">
-    <h1 class="dashboardBox__title">Catégorie de dépenses</h1>
-    <span class="dashboardBox__value">6</span>
-  </div>       
-</div>
-
-<div class="graphBoxWrapper">
-  <div class="graphBox">            
-    <h1 class="graphBox__title">Revenus / Dépenses</h1>
-    <div class="graphBox__chart">
-      <canvas id="myChart1"></canvas>
+<div class="dashboard">
+  <div class="dashboardBoxWrapper">
+    <div class="dashboardBox">
+      <h1 class="dashboardBox__title">Balance</h1>
+      <span class="dashboardBox__value">125$</span>
     </div>
-  </div>   
 
-  <div class="graphBox">
-    <h1 class="graphBox__title">Répartition des catégories de dépenses</h1>
-    <div class="graphBox__chart">
-      <canvas id="myChart2"></canvas>
+    <div class="dashboardBox">
+      <h1 class="dashboardBox__title">Dépenses</h1>
+      <span class="dashboardBox__value">700$</span>
+    </div>
+
+    <div class="dashboardBox">
+      <h1 class="dashboardBox__title">Revenus</h1>
+      <span class="dashboardBox__value">2000$</span>
+    </div>
+
+    <div class="dashboardBox">
+      <h1 class="dashboardBox__title">Catégorie de dépenses</h1>
+      <span class="dashboardBox__value">6</span>
+    </div>       
+  </div>
+
+  <div class="graphBoxWrapper">
+    <div class="graphBox">            
+      <h1 class="graphBox__title">Revenus / Dépenses</h1>
+      <div class="graphBox__chart">
+        <canvas id="myChart1"></canvas>
+      </div>
+    </div>   
+
+    <div class="graphBox">
+      <h1 class="graphBox__title">Répartition des catégories de dépenses</h1>
+      <div class="graphBox__chart">
+        <canvas id="myChart2"></canvas>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-  $(document).on('turbolinks:load', function () {
-    var ctx1 = document.getElementById("myChart1");
-    var myChart1 = new Chart(ctx1, {
-      type: 'pie',
-      data: {
-        labels: ["Dépenses", "Revenus"],
-        datasets: [{
-          data: [12, 19],
-          backgroundColor: [
-            '#2C3E50',
-            '#3498DB',
-          ],
-          borderColor: [
-            '#2C3E50',
-            '#3498DB'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true
-      }
-    });
+  var ctx1 = document.getElementById("myChart1");
+  var myChart1 = new Chart(ctx1, {
+    type: 'pie',
+    data: {
+      labels: ["Dépenses", "Revenus"],
+      datasets: [{
+        data: [12, 19],
+        backgroundColor: [
+          '#2C3E50',
+          '#3498DB',
+        ],
+        borderColor: [
+          '#2C3E50',
+          '#3498DB'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true
+    }
+  });
 
-    var ctx2 = document.getElementById("myChart2");
-    var myChart2 = new Chart(ctx2, {
-      type: 'pie',
-      data: {
-        labels: ["Catégorie 1", "Catégorie 2", "Catégorie 3", "Catégorie 4"],
-        datasets: [{
-          data: [12, 19, 32, 10],
-          backgroundColor: [
-            '#2C3E50',
-            '#3498DB',
-            '#B0CEFF',
-            '#849BBF',
-          ],
-          borderColor: [
-            '#2C3E50',
-            '#3498DB',
-            '#B0CEFF',
-            '#849BBF',
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        legend: {
+  var ctx2 = document.getElementById("myChart2");
+  var myChart2 = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+      labels: ["Catégorie 1", "Catégorie 2", "Catégorie 3", "Catégorie 4"],
+      datasets: [{
+        data: [12, 19, 32, 10],
+        backgroundColor: [
+          '#2C3E50',
+          '#3498DB',
+          '#B0CEFF',
+          '#849BBF',
+        ],
+        borderColor: [
+          '#2C3E50',
+          '#3498DB',
+          '#B0CEFF',
+          '#849BBF',
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      legend: {
 
-        }
       }
-    });
-  })
+    }
+  });
 </script>

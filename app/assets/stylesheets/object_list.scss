@@ -1,0 +1,86 @@
+.listHeader{
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
+  margin: 20px 20px 0px 20px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+
+
+  .listHeader__title{
+    width: 94%;
+    margin-left: 20px;
+  }
+
+  .listHeader__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    width: 50px;
+    height: 50px;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: $accent_color;
+    border-radius: 100px;
+  }
+}
+
+.listTable{
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
+  margin: 20px 20px 0px 20px;
+  
+  table{
+    border-collapse: separate;
+    border-spacing: 0px;
+    width: 100%;
+  }
+
+  th{
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+  }
+
+  th:last-child {
+    text-align: right;
+  }
+
+  .listTable__header{
+    th{
+      color: #646464;
+      background-color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 400;
+      height: 52px;
+      border-bottom: solid 1px #646464;  
+    }
+  }
+
+  tr{
+    height: 60px;
+
+    th{
+      color: $darkBlue_color;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  tr:nth-child(odd) {
+    background-color: #F9F9F9;
+  }
+
+  .listTable__edit{
+    font-size: 26px;
+    color: $darkBlue_color;
+    cursor: pointer;
+  }
+
+  .listTable__delete{
+    font-size: 26px;
+    color: $accent_color;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,21 @@
+<div class="sideBar">
+  <%= link_to root_path, class: "sideBar__link" do %>
+    <i class="icon icon-ic_web_48px"></i>
+    Tableau de bord
+  <% end %>
+
+  <%= link_to incomes_path, class: "sideBar__link" do %>
+    <i class="icon icon-ic_file_download_48px"></i>
+    Revenus
+  <% end%>
+
+  <a href="/object_list" class="sideBar__link">
+    <i class="icon icon-ic_file_upload_48px"></i>
+    Dépenses
+  </a>
+
+  <a href="/object_list" class="sideBar__link">
+    <i class="icon icon-ic_folder_open_48px"></i>
+    Catégories de dépenses
+  </a>
+</div>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  resources :incomes
+  resources :expenses
+  resources :expense_categories
+
   root to: "dashboard#index"
 end

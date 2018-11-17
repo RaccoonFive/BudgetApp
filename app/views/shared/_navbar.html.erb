@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <div class="navbar__sideMenuButton">
+    <i class="icon icon-ic_menu_48px" id="sideBarBtn"></i>
+  </div>
+
+  <div class="navbar__links">
+    <a href="#" class="selected">
+      <i class="icon icon-ic_person_48px"></i>
+      Mon compte
+    </a>
+    
+    <%= link_to(destroy_user_session_path, method: :delete) do %>    
+      <i class="icon icon-ic_subdirectory_arrow_left_48px"></i>        
+      Déconnexion
+    <% end %>
+  </div>    
+</nav>
+
+<div class="navbarSpacer"></div>

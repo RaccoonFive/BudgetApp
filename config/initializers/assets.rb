@@ -17,5 +17,4 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets", "fonts
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w( dashboard.scss )
-Rails.application.config.assets.precompile += %w( dashboard.js )
 Rails.application.config.assets.precompile += %w( font.scss )

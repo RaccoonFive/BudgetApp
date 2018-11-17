@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require Chart.min
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -19,21 +18,17 @@
 
 ////
 // Open sidemenu
-
-$(document).ready(function (event) {
-  $('.navbar__sideMenuButton').click(function (event) {
-    if ($('.sideBar').hasClass('active')) {
-      $('.sideBar').removeClass('active');
-    } else {
-      $('.sideBar').addClass('active');
-    }
-  });
+$(document).on('click', '.navbar__sideMenuButton', (event) => {
+  if ($('.sideBar').hasClass('active')) {
+    $('.sideBar').removeClass('active');
+  } else {
+    $('.sideBar').addClass('active');
+  }
 });
-
 
 ////
 // Close sidemenu
-$(document).click(function (event) {
+$(document).on('click', (event) => {
   if (!$(event.target).closest('.sideBar').length && !$(event.target).is($('#sideBarBtn'))) {
     $('.sideBar').removeClass('active');
   }
