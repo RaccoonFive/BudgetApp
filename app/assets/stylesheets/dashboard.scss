@@ -1,0 +1,71 @@
+@import "imports/variables";
+
+html, body {
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  background-color: $white_color;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.dashboardBoxWrapper{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  .dashboardBox {
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    color: $darkBlue_color;
+    background: #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
+    
+    .dashboardBox__title {
+      font-size: 26px;
+      text-align: center;
+    }
+
+    .dashboardBox__value {
+      font-size: 56px;
+      margin-top: 32px;
+    }
+  }
+}
+
+
+.graphBoxWrapper {      
+  flex: 1;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;  
+
+  .graphBox {
+    background: #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
+    color: $darkBlue_color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .graphBox__title{
+    text-align: center;
+  }
+
+  .graphBox__chart{
+    position: relative;
+    height: 100%;    
+    width: 100%;    
+  }
+}
