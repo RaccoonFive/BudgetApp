@@ -9,7 +9,7 @@
 </div>
 
 <div class="popup">
-  <%= form_with url: expense_categories_path, id: "newExpenseCategoryForm", remote: true do |form| %>
+  <%= form_with model: @new_expense_category, id: "newExpenseCategoryForm", remote: true do |form| %>
     <div class="popup__content">
       <div class="popup__header">
         <h1>Ajouter une dépense</h1>
@@ -31,6 +31,9 @@
   <% end %>
 </div>
 
+<div class="popupEdit">
+</div>
+
 <script>
   $('.listHeader__btn').click(function (event) {
     event.preventDefault();
@@ -44,6 +47,12 @@
   $('.popup').click(function (event) {
     if (event.target.classList.contains('popup')) {
       $('.popup').removeClass('--active');
+    }
+  });
+
+  $('.popupEdit').click(function (event) {
+    if (event.target.classList.contains('popupEdit')) {
+      $('.popupEdit').removeClass('--active');
     }
   });
 </script>

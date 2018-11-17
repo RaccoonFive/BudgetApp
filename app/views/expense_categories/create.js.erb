@@ -1,5 +1,10 @@
 <% if @save_state %>
   $('.popup').removeClass('--active');
+  $('#expense_category_name').val('');
   $('.listTable').empty();
   $('.listTable').append("<%= j render 'table' %>")
+
+  toastr.success('Catégorie de dépenses ajouté!')
+<% else %>
+  toastr.error("Erreur lors de l'ajout.")
 <% end %>

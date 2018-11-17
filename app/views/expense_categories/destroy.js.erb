@@ -1,0 +1,7 @@
+<% if @expense_category.destroyed? %>
+  $('.listTable').empty();
+  $('.listTable').append("<%= j render 'table' %>")
+  toastr.success('Catégorie de dépenses supprimé!')  
+<% else %>
+  toastr.error("Erreur lors de la suppression.")
+<% end %>

@@ -1,0 +1,26 @@
+<%= form_with model: @expense_category, id: "editExpenseCategoryForm", remote: true do |form| %>
+  <div class="popup__content">
+    <div class="popup__header">
+      <h1>Éditer une dépense</h1>
+    </div>
+    <div class="popup__form">
+        <div class="popup__field">
+          <%= form.label :name, "Nom" %>
+          <%= form.text_field :name %>
+        </div>              
+    </div>
+    <div class="popup__footer">
+      <%= form.submit 'Ajouter', class: "popup__saveBtn"%>
+
+      <div class="popup__cancelBtn">
+        Annuler
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  $('.popup__cancelBtn').click(function (event) {
+    $('.popupEdit').removeClass('--active');
+  })
+</script>
