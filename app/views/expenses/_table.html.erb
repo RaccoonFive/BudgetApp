@@ -12,7 +12,7 @@
     <tr>
       <th><%= expense.name %></th>
       <th><%= expense.amount %>$</th>
-      <th><%= expense.expense_category.name %></th>
+      <th><%= expense.expense_category.name if expense.expense_category.present? %></th>
       <th>
         <%= link_to edit_expense_path(expense.id), remote: true, style: "text-decoration: none;" do %>
           <i class="icon icon-ic_launch_48px listTable__edit"></i>
