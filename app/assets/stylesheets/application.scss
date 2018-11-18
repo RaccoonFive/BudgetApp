@@ -2,9 +2,13 @@
  *= require_self
 */
 @import "imports/variables";
-@import "toastr";
+@import "toastr.min";
 @import "dashboard";
 @import "object_list";  
+
+#toast-container > div {
+  opacity:0.95;
+}
 
 * {
   font-family: $roboto_font;

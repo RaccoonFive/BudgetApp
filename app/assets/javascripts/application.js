@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require toastr
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -34,3 +33,18 @@ $(document).on('click', (event) => {
     $('.sideBar').removeClass('active');
   }
 });
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "positionClass": "toast-top-right",
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
