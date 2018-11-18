@@ -1,7 +1,6 @@
 class IncomesController < ApplicationController
   def index
     @incomes = Income.all
-    puts @incomes
     @new_income = Income.new
   end
 
