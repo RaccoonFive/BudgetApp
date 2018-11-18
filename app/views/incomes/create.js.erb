@@ -1,0 +1,14 @@
+<% if @save_state %>
+  $('.popup').removeClass('--active');
+
+  $('#income_name').val('');
+  $('#income_amount').val('');
+  $('#income_income_category_id').val('');
+
+  $('.listTable').empty();
+  $('.listTable').append("<%= j render 'table' %>")
+
+  toastr.success('Revenu ajouté!')
+<% else %>
+  toastr.error("Erreur lors de l'ajout.")
+<% end %>

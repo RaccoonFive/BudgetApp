@@ -1,0 +1,9 @@
+<% if @update_state %>
+  $('.popupEdit').removeClass('--active');
+  $('.listTable').empty();
+  $('.listTable').append("<%= j render 'table' %>")
+
+  toastr.success('Revenu modifiée!')
+<% else %>
+  toastr.error("Erreur lors de la modification.")
+<% end %>

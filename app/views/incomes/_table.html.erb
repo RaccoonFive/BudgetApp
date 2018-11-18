@@ -1,0 +1,26 @@
+<table class="">
+  <thead>
+    <tr class="listTable__header">
+      <th style="width: 350px;">Nom</th>
+      <th style="width: 400px;">Montant</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @incomes.each do |income| %>
+    <tr>
+      <th><%= income.name %></th>
+      <th><%= income.amount %>$</th>
+      <th>
+        <%= link_to edit_income_path(income.id), remote: true, style: "text-decoration: none;" do %>
+          <i class="icon icon-ic_launch_48px listTable__edit"></i>
+        <% end %>
+        <%= link_to income_path(income.id), method: :delete, remote: true, data: { confirm: 'Êtes-vous certain?' } do %>
+          <i class="icon icon-ic_delete_forever_48px listTable__delete"></i></a>
+        <% end %>
+      </th>
+    </tr>
+    <% end %>
+  </tbody>
+  
+</table>
