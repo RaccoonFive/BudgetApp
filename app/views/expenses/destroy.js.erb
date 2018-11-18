@@ -1,0 +1,7 @@
+<% if @expense.destroyed? %>
+  $('.listTable').empty();
+  $('.listTable').append("<%= j render 'table' %>")
+  toastr.success('Dépense supprimé!')
+<% else %>
+  toastr.error("Erreur lors de la suppression.")
+<% end %>

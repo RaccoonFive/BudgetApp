@@ -5,7 +5,7 @@
 @import "toastr";
 @import "dashboard";
 @import "object_list";  
- 
+
 * {
   font-family: $roboto_font;
 }
@@ -17,7 +17,6 @@
 body{
   margin: 0;
   background-color: $white_color;
-
 }
 
 .navbar{

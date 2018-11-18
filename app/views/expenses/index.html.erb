@@ -5,146 +5,46 @@
   </a>    
 </div>
 <div class="listTable">
-
-<table class="">
-  <thead>
-    <tr class="listTable__header">
-      <th style="width: 350px;">Nom</th>
-      <th style="width: 400px;">Montant</th>
-      <th style="width: 400px;">Catégorie</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-
-    <tr>
-      <th>Cellulaire</th>
-      <th>40.00$</th>
-      <th>Abonements</th>
-      <th><i class="icon icon-ic_launch_48px listTable__edit"></i><i class="icon icon-ic_delete_forever_48px listTable__delete"></i></th>
-    </tr>
-  </tbody>
-  
-</table>
+  <%= render "table" %>
 </div>
 
 <div class="popup">
-  <div class="popup__content">
-    <div class="popup__header">
-      <h1>Ajouter une dépense</h1>
-    </div>
-    <div class="popup__form">
-
-      <div class="popup__field">
-        <label for="name">Nom</label>
-        <input type="text" name="name">
+  <%= form_with model: @new_expense, id: "newExpenseForm", remote: true do |form| %>
+    <div class="popup__content">
+      <div class="popup__header">
+        <h1>Ajouter une dépense</h1>
       </div>
-      
-      <div class="popup__field">
-        <label for="amount">Montant</label>
-        <input type="text" name="amount">
+      <div class="popup__form">
+
+        <div class="popup__field">
+          <%= form.label :name, "Nom" %>
+          <%= form.text_field :name, required: true  %>
+        </div>
+        
+        <div class="popup__field">
+          <%= form.label :amount, "Montant" %>
+          <%= form.number_field :amount, required: true %>
+        </div>
+
+        <div class="popup__field">
+          <label for="amount">Catégorie</label>
+          <%= form.select :expense_category_id, options_for_select(@expense_categories.map { |category| [category.name, category.id]}), { include_blank: "Veuillez choisir une catégorie" }, required: true %>
+        </div>
+
+
       </div>
+      <div class="popup__footer">
+        <%= form.submit 'Ajouter', class: "popup__saveBtn"%>
 
-      <div class="popup__field">
-        <label for="amount">Catégorie</label>
-        <select name="category" required>
-          <option value="" disabled selected>Veuillez choisir une catégorie</option>
-          <option value="1">Catégorie 1</option>
-          <option value="2">Catégorie 2</option>
-          <option value="3">Catégorie 3</option>
-          <option value="4">Catégorie 4</option>
-          <option value="1">Catégorie 5</option>
-        </select>
-      </div>
-
-
-    </div>
-    <div class="popup__footer">
-      <div class="popup__saveBtn">
-        Ajouter
-      </div>
-
-      <div class="popup__cancelBtn">
-        Annuler
+        <div class="popup__cancelBtn">
+          Annuler
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
+</div>
+
+<div class="popupEdit">
 </div>
 
 <script>
@@ -158,9 +58,14 @@
   })
 
   $('.popup').click(function (event) {
-    console.log(event.target.classList);
     if (event.target.classList.contains('popup')) {
       $('.popup').removeClass('--active');
+    }
+  });
+  
+  $('.popupEdit').click(function (event) {
+    if (event.target.classList.contains('popupEdit')) {
+      $('.popupEdit').removeClass('--active');
     }
   });
 </script>

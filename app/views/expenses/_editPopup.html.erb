@@ -1,0 +1,42 @@
+<div class="popupEdit">
+  <%= form_with model: @expense, id: "editExpenseForm", remote: true do |form| %>
+    <div class="popup__content">
+      <div class="popup__header">
+        <h1>Ajouter une dépense</h1>
+      </div>
+      <div class="popup__form">
+
+        <div class="popup__field">
+          <%= form.label :name, "Nom" %>
+          <%= form.text_field :name, required: true  %>
+        </div>
+        
+        <div class="popup__field">
+          <%= form.label :amount, "Montant" %>
+          <%= form.number_field :amount, required: true %>
+        </div>
+
+        <div class="popup__field">
+          <label for="amount">Catégorie</label>
+          <%= form.select :expense_category_id, options_for_select(@expense_categories.map { |category| [category.name, category.id]}, @expense.expense_category_id), { include_blank: "Veuillez choisir une catégorie" }, required: true %>
+        </div>
+
+
+      </div>
+      <div class="popup__footer">
+        <%= form.submit 'Ajouter', class: "popup__saveBtn"%>
+
+        <div class="popup__cancelBtn">
+          Annuler
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<script>
+  $('.popup__cancelBtn').click(function (event) {
+    $('.popupEdit').removeClass('--active');
+  })
+</script>

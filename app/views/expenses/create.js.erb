@@ -1,0 +1,14 @@
+<% if @save_state %>
+  $('.popup').removeClass('--active');
+
+  $('#expense_name').val('');
+  $('#expense_amount').val('');
+  $('#expense_expense_category_id').val('');
+
+  $('.listTable').empty();
+  $('.listTable').append("<%= j render 'table' %>")
+
+  toastr.success('Dépenses ajouté!')
+<% else %>
+  toastr.error("Erreur lors de l'ajout.")
+<% end %>
