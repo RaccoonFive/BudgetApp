@@ -24,7 +24,7 @@
 
       </div>
       <div class="popup__footer">
-        <%= form.submit 'Ajouter', class: "popup__saveBtn"%>
+        <%= form.submit 'Enregistrer', class: "popup__saveBtn"%>
 
         <div class="popup__cancelBtn">
           Annuler
@@ -38,5 +38,5 @@
 <script>
   $('.popup__cancelBtn').click(function (event) {
     $('.popupEdit').removeClass('--active');
-  })
+  });
 </script>

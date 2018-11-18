@@ -45,7 +45,7 @@
     data: {
       labels: ["Dépenses", "Revenus"],
       datasets: [{
-        data: [12, 19],
+        data: [<%= @expense_sum.floor %>, <%= @income_sum.floor %>],
         backgroundColor: [
           '#2C3E50',
           '#3498DB',
@@ -66,9 +66,17 @@
   var myChart2 = new Chart(ctx2, {
     type: 'pie',
     data: {
-      labels: ["Catégorie 1", "Catégorie 2", "Catégorie 3", "Catégorie 4"],
+      labels: [
+        <% @expense_categories.each do |category|  %>
+          "<%= category.name %>",
+        <% end %>
+      ],
       datasets: [{
-        data: [12, 19, 32, 10],
+        data: [
+          <% @expense_categories.each do |category|  %>
+            <%= category.expenses.sum(:amount) %>,
+          <% end %>
+        ],
         backgroundColor: [
           '#2C3E50',
           '#3498DB',
