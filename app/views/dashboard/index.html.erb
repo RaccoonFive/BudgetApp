@@ -45,7 +45,12 @@
     data: {
       labels: ["Dépenses", "Revenus"],
       datasets: [{
-        data: [<%= @expense_sum.floor %>, <%= @income_sum.floor %>],
+        data: [<%= @expense_sum.floor %>
+        <% if @income_sum.floor - @expense_sum.floor  > 0 %> 
+          <%= "," %>
+          <%= @income_sum.floor - @expense_sum.floor %>
+        <% end %>
+        ],
         backgroundColor: [
           '#2C3E50',
           '#3498DB',
