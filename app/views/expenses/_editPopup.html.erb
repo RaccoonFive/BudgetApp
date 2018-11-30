@@ -13,7 +13,7 @@
         
         <div class="popup__field">
           <%= form.label :amount, "Montant" %>
-          <%= form.number_field :amount, required: true %>
+          <%= form.number_field :amount, required: true, step: 0.01 %>
         </div>
 
         <div class="popup__field">
