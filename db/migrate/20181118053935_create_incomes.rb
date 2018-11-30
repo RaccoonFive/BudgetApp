@@ -3,7 +3,8 @@ class CreateIncomes < ActiveRecord::Migration[5.2]
     create_table :incomes do |t|
       t.string :name
       t.float :amount
-
+      t.references :user, foreign_key: true
+      
       t.timestamps
     end
   end

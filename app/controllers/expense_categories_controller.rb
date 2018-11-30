@@ -1,15 +1,18 @@
 class ExpenseCategoriesController < ApplicationController
   def index
-    @expense_categories = ExpenseCategory.all
-    @new_expense_category = ExpenseCategory.new
+    @expense_categories = current_user.expense_categories.all
+
+    puts @expense_categories.inspect
+
+    @new_expense_category = current_user.expense_categories.new
   end
 
   def create
-    @expense_category = ExpenseCategory.new(permited_params)
+    @expense_category = current_user.expense_categories.new(permited_params)
     @save_state = @expense_category.save
 
     if @save_state 
-      @expense_categories = ExpenseCategory.all
+      @expense_categories = current_user.expense_categories.all
     end
 
     respond_to do |format|
@@ -18,7 +21,7 @@ class ExpenseCategoriesController < ApplicationController
   end 
 
   def edit
-    @expense_category = ExpenseCategory.find(params[:id])
+    @expense_category = current_user.expense_categories.find(params[:id])
 
     respond_to do |format|
       format.js
@@ -26,11 +29,11 @@ class ExpenseCategoriesController < ApplicationController
   end 
 
   def update 
-    @expense_category = ExpenseCategory.find(params[:id])
+    @expense_category = current_user.expense_categories.find(params[:id])
     @update_state = @expense_category.update(permited_params)
 
     if @update_state 
-      @expense_categories = ExpenseCategory.all
+      @expense_categories = current_user.expense_categories.all
     end
 
     respond_to do |format|
@@ -39,11 +42,11 @@ class ExpenseCategoriesController < ApplicationController
   end
 
   def destroy
-    @expense_category = ExpenseCategory.find(params[:id])
+    @expense_category = current_user.expense_categories.find(params[:id])
     @expense_category.destroy
 
     if @expense_category.destroyed?
-      @expense_categories = ExpenseCategory.all
+      @expense_categories = current_user.expense_categories.all
     end
 
     respond_to do |format|

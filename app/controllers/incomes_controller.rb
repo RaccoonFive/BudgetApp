@@ -1,15 +1,15 @@
 class IncomesController < ApplicationController
   def index
-    @incomes = Income.all
-    @new_income = Income.new
+    @incomes = current_user.incomes.all
+    @new_income = current_user.incomes.new
   end
 
   def create 
-    @income = Income.new(permited_params)
+    @income = current_user.incomes.new(permited_params)
     @save_state = @income.save
 
     if @save_state 
-      @incomes = Income.all
+      @incomes = current_user.incomes.all
     end
 
     respond_to do |format|
@@ -18,7 +18,7 @@ class IncomesController < ApplicationController
   end
 
   def edit
-    @income = Income.find(params[:id])
+    @income = current_user.incomes.find(params[:id])
 
     respond_to do |format|
       format.js
@@ -26,11 +26,11 @@ class IncomesController < ApplicationController
   end
 
   def update
-    @income = Income.find(params[:id])
+    @income = current_user.incomes.find(params[:id])
     @update_state = @income.update(permited_params)
 
     if @update_state 
-      @incomes = Income.all
+      @incomes = current_user.incomes.all
     end
 
     respond_to do |format|
@@ -39,11 +39,11 @@ class IncomesController < ApplicationController
   end
 
   def destroy
-    @income = Income.find(params[:id])
+    @income = current_user.incomes.find(params[:id])
     @income.destroy
 
     if @income.destroyed?
-      @incomes = Income.all
+      @incomes = current_user.incomes.all
     end
 
     respond_to do |format|

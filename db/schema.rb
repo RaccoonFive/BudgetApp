@@ -14,24 +14,30 @@ ActiveRecord::Schema.define(version: 2018_11_18_053935) do
 
   create_table "expense_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_expense_categories_on_user_id"
   end
 
   create_table "expenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.float "amount"
     t.bigint "expense_category_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["expense_category_id"], name: "index_expenses_on_expense_category_id"
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "incomes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.float "amount"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_incomes_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,5 +52,8 @@ ActiveRecord::Schema.define(version: 2018_11_18_053935) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "expense_categories", "users"
   add_foreign_key "expenses", "expense_categories"
+  add_foreign_key "expenses", "users"
+  add_foreign_key "incomes", "users"
 end
